@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Moneybox Product Categories Page
 
-## Getting Started
+This project is a **React / Next.js application** that displays all Moneybox products in their respective categories. It allows **business users to update categories and products via Contentful** without developer involvement and ensures the content can also be consumed by other platforms (e.g., mobile apps) via Contentful’s API.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Display all Moneybox product categories and products
+- Show **images and descriptions** for each product
+- **Business users can update content** without developer intervention (via Contentful)
+- Fully responsive UI matching the wireframe design
+- Structured and typed using TypeScript
+- Easy to maintain and extend
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Prerequisites
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Before running the project locally, make sure you have **Node.js** and **npm** installed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Installing Node.js and npm
 
-## Learn More
+1.  **Check if Node.js and npm are already installed**
 
-To learn more about Next.js, take a look at the following resources:
+L`node -v  npm -v`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- If these commands return a version number, you already have Node.js and npm installed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1.  **Install Node.js and npm**
 
-## Deploy on Vercel
+- Go to the Node.js download page
+- Download the **LTS (Long Term Support)** version for your operating system.
+- Run the installer and follow the prompts.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> npm is installed automatically with Node.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  **Verify installation**
+
+`node -v  npm -v`
+
+## Installation
+
+1.  **Clone the repository**
+
+`git clone https://github.com/your-username/your-repo.git  cd your-repo`
+
+1.  **Install dependencies**
+
+`npm install`
+
+### Installing Dependencies Manually (Fallback)
+
+If npm install fails or some packages are missing:
+
+`# Install Next.js and React  npm install next react react-dom  # Install TypeScript and types  npm install typescript @types/react @types/node --save-dev  # Install Contentful SDK  npm install contentful  # Install classnames utility  npm install classnames  # Optional: install SCSS support  npm install sass`
+
+## Environment Variables
+
+Create a .env.local file in the root of the project with the following keys:
+
+`CONTENTFUL_SPACE_ID=2m8usms9sttm  CONTENTFUL_ACCESS_TOKEN=oSZs6f71DWH8kmQAgs5ROkmt86ewkk6lK2NsTA7TShk  CONTENTFUL_PREVIEW_API_ACCESS_TOKEN=7NSXeOe_MxWD4coYGW1uqDdNwMqh7maaNSJegYFzPdc`
+
+> .env.local is ignored by Git, so your keys are **not publicly visible**.
+
+## Contentful Setup and Updating Content
+
+### 1\. Login
+
+- Go to Contentful and log in.
+- Username: virdeemaya@gmail.com
+- Password: MC-Techtest1
+
+### 2\. Edit existing content
+
+- Navigate to **Content** in the top menu
+- Click on an existing entry
+- Make required changes and select **Publish changes**
+- Updates are automatically reflected in the app on refresh when running locally
+- If you are adding a **Product**, after you have published, navigate to the relevant **Category** and link your product under the **Products** field
+- If you are adding a **Category**, after you have published, navigate to the relevant **Page** and link your category under the **Categories** field
+
+### 3\. Creating new content
+
+- Navigate to **Content** in the top menu
+- Click **Add Entry**
+- Choose either **Category** or **Product**
+- Fill out all required fields and select **Publish**
+- Updates are automatically reflected in the app on refresh when running locally
+
+> No developer intervention is required to update the content.
+
+## Running the Project Locally
+
+`npm run dev`
+
+- Open [http://localhost:3000](http://localhost:3000/) in your browser to view the app.
+
+## Build for Production
+
+`npm run build  npm start`
+
+## Technical Notes
+
+- **React + Next.js** used for SPA and server-side rendering support
+- **Contentful** provides CMS and API for products/categories
+- **classnames** used for conditional CSS classes
+- **SCSS modules** for modular, maintainable styling
+- **TypeScript** ensures type safety and easier maintenance
+- Components are modular and reusable (Product, Category, Carousel)
+
+## Notes for Reviewers
+
+- All requirements from the Moneybox brief have been implemented:
+
+  - Business-user-updatable content
+  - Accessible via API for other platforms
+  - Products and categories display with images and descriptions
+  - UI matches wireframe and is visually appealing
+
+- The app can be run locally using the steps above
+- Adding a new product or category requires only updating Contentful; no code changes needed
+
+### Due to time constraint
+
+- Trying to run the server with a draft entry (Category or Product) in Contentful will throw an error, make sure content is published
+- Component testing with Jest or the like hasn't been implemented

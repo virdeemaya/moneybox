@@ -1,0 +1,118 @@
+.carousel-wrapper {
+  padding: 30px;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    padding: 60px;
+  }
+}
+
+.carousel-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-bottom: 32px;
+  align-items: center;
+
+  h1 {
+    font-size: 20px;
+    margin: 0;
+
+    @media (min-width: 768px) {
+      font-size: 24px;
+    }
+  }
+
+  button {
+    background-color: #011b1b0d;
+    color: inherit;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: #011b1b1a;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.carousel-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: flex-start;
+  transition: transform 0.4s ease-in-out;
+  gap: 0;
+  transform: translateX(calc(-1 * var(--active-index, 0) * 100%));
+
+  @media (min-width: 768px) {
+    gap: 24px;
+    transform: translateX(
+      calc(-1 * max(0, var(--active-index, 0) - 1) * (50% + 12px))
+    );
+  }
+
+  @media (min-width: 1024px) {
+    transform: translateX(
+      calc(-1 * max(0, var(--active-index, 0) - 2) * (33.333% + 8px))
+    );
+  }
+}
+
+.category {
+  background-color: #f4f8f7;
+  padding: 32px 16px;
+  border-radius: 16px;
+  border: 2px solid #f4f8f7;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+  flex-basis: 100%;
+
+  @media (min-width: 768px) {
+    flex-basis: calc(50% - 12px);
+  }
+
+  @media (min-width: 1024px) {
+    flex-basis: calc(33.333% - 16px);
+  }
+}
+
+.category-title {
+  text-align: center;
+
+  h2 {
+    font-size: 18px;
+    margin: 0;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.category-list {
+  display: none;
+}
+
+.category.active {
+  border-color: #1c3d3e;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px 0px,
+    rgba(0, 0, 0, 0.1) 0px 0px 56px 0px;
+
+  .category-list {
+    display: block;
+  }
+}
